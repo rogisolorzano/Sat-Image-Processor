@@ -1,0 +1,5 @@
+mgrs
+sentinelsat
+boto3
+Pillow==4.0.0
+pimpmypillow
