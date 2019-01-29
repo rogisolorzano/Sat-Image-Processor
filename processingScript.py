@@ -68,6 +68,7 @@ def getPreprocessedSatelliteImage(band_scheme, archive,scale):
         b_b = rescale(io.imread(byt.BytesIO(archive.read(list(filter(lambda fileName: re.search(r"B04.jp2$", fileName) != None, archive.namelist()))[0]))), (10/20) * scale)
         return b_r, b_g, b_b
 
+# we are using @profile to profile the memory usage of the band processing
 @profile
 def intensityScaleBandwidths(b_r, b_g, b_b, intensity):
     stack_image = np.dstack((b_r, b_g, b_b))
