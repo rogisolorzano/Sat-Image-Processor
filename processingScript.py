@@ -27,43 +27,8 @@ def getPreprocessedSatelliteImage(band_scheme, archive,scale):
         b_g = rescale(io.imread(byt.BytesIO(archive.read(list(filter(lambda fileName: re.search(r"B04.jp2$", fileName) != None, archive.namelist()))[0]))), scale)
         b_b = rescale(io.imread(byt.BytesIO(archive.read(list(filter(lambda fileName: re.search(r"B03.jp2$", fileName) != None, archive.namelist()))[0]))), scale)
         return b_r, b_g, b_b
-    elif band_scheme == "urban":
-        b_r = rescale(io.imread(byt.BytesIO(archive.read(list(filter(lambda fileName: re.search(r"B12.jp2$", fileName) != None, archive.namelist()))[0]))), scale)
-        b_g = rescale(io.imread(byt.BytesIO(archive.read(list(filter(lambda fileName: re.search(r"B11.jp2$", fileName) != None, archive.namelist()))[0]))), scale)
-        b_b = rescale(io.imread(byt.BytesIO(archive.read(list(filter(lambda fileName: re.search(r"B04.jp2$", fileName) != None, archive.namelist()))[0]))), (10/20) * scale)
-        return b_r, b_g, b_b
-    elif band_scheme == "agr":
-        b_r = rescale(io.imread(byt.BytesIO(archive.read(list(filter(lambda fileName: re.search(r"B11.jp2$", fileName) != None, archive.namelist()))[0]))), scale)
-        b_g = rescale(io.imread(byt.BytesIO(archive.read(list(filter(lambda fileName: re.search(r"B08.jp2$", fileName) != None, archive.namelist()))[0]))), (10/20) * scale)
-        b_b = rescale(io.imread(byt.BytesIO(archive.read(list(filter(lambda fileName: re.search(r"B02.jp2$", fileName) != None, archive.namelist()))[0]))), (10/20) * scale)
-        return b_r, b_g, b_b
-    elif band_scheme == "atmospheric":
-        b_r = rescale(io.imread(byt.BytesIO(archive.read(list(filter(lambda fileName: re.search(r"B12.jp2$", fileName) != None, archive.namelist()))[0]))), scale)
-        b_g = rescale(io.imread(byt.BytesIO(archive.read(list(filter(lambda fileName: re.search(r"B11.jp2$", fileName) != None, archive.namelist()))[0]))), scale)
-        b_b = rescale(io.imread(byt.BytesIO(archive.read(list(filter(lambda fileName: re.search(r"B8A.jp2$", fileName) != None, archive.namelist()))[0]))), scale)
-        return b_r, b_g, b_b
-    elif band_scheme == "healthy_veg":
-        b_r = rescale(io.imread(byt.BytesIO(archive.read(list(filter(lambda fileName: re.search(r"B08.jp2$", fileName) != None, archive.namelist()))[0]))), (10/20) * scale)
-        b_g = rescale(io.imread(byt.BytesIO(archive.read(list(filter(lambda fileName: re.search(r"B11.jp2$", fileName) != None, archive.namelist()))[0]))), scale)
-        b_b = rescale(io.imread(byt.BytesIO(archive.read(list(filter(lambda fileName: re.search(r"B02.jp2$", fileName) != None, archive.namelist()))[0]))), (10/20) * scale)
-        return b_r, b_g, b_b
-    elif band_scheme == "land_water":
-        b_r = rescale(io.imread(byt.BytesIO(archive.read(list(filter(lambda fileName: re.search(r"B08.jp2$", fileName) != None, archive.namelist()))[0]))), (10/20) * scale)
-        b_g = rescale(io.imread(byt.BytesIO(archive.read(list(filter(lambda fileName: re.search(r"B11.jp2$", fileName) != None, archive.namelist()))[0]))), scale)
-        b_b = rescale(io.imread(byt.BytesIO(archive.read(list(filter(lambda fileName: re.search(r"B04.jp2$", fileName) != None, archive.namelist()))[0]))), (10/20) * scale)
-        return b_r, b_g, b_b
-    elif band_scheme == "natural_atmospheric":
-        b_r = rescale(io.imread(byt.BytesIO(archive.read(list(filter(lambda fileName: re.search(r"B12.jp2$", fileName) != None, archive.namelist()))[0]))), scale)
-        b_g = rescale(io.imread(byt.BytesIO(archive.read(list(filter(lambda fileName: re.search(r"B08.jp2$", fileName) != None, archive.namelist()))[0]))), (10/20) * scale)
-        b_b = rescale(io.imread(byt.BytesIO(archive.read(list(filter(lambda fileName: re.search(r"B03.jp2$", fileName) != None, archive.namelist()))[0]))), (10/20) * scale)
-        return b_r, b_g, b_b
     elif band_scheme == "short_infrared":
         b_r = rescale(io.imread(byt.BytesIO(archive.read(list(filter(lambda fileName: re.search(r"B12.jp2$", fileName) != None, archive.namelist()))[0]))), scale)
-        b_g = rescale(io.imread(byt.BytesIO(archive.read(list(filter(lambda fileName: re.search(r"B08.jp2$", fileName) != None, archive.namelist()))[0]))), (10/20) * scale)
-        b_b = rescale(io.imread(byt.BytesIO(archive.read(list(filter(lambda fileName: re.search(r"B04.jp2$", fileName) != None, archive.namelist()))[0]))), (10/20) * scale)
-        return b_r, b_g, b_b
-    elif band_scheme == "veg_analyses":
-        b_r = rescale(io.imread(byt.BytesIO(archive.read(list(filter(lambda fileName: re.search(r"B11.jp2$", fileName) != None, archive.namelist()))[0]))), scale)
         b_g = rescale(io.imread(byt.BytesIO(archive.read(list(filter(lambda fileName: re.search(r"B08.jp2$", fileName) != None, archive.namelist()))[0]))), (10/20) * scale)
         b_b = rescale(io.imread(byt.BytesIO(archive.read(list(filter(lambda fileName: re.search(r"B04.jp2$", fileName) != None, archive.namelist()))[0]))), (10/20) * scale)
         return b_r, b_g, b_b
